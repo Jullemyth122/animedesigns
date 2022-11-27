@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Loved+by+the+King&family=Luckiest+Guy&family=Lusitana&family=Medula+One&family=Michroma&family=Petrona:wght@200&family=Philosopher&display=swap');
+
+$colors:(#82C9DF,#569573,#E35F5F,#8B983C,#F8AE57);
+$fonts:(
+    ('Loved by the King',cursive),
+    ('Medula One',cursive),
+    ('Michroma', sans-serif),
+    ('Lusitana', serif),
+    ('Bebas Neue', cursive)
+);
+
+.introduction {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // overflow-x: hidden;
+    // overflow-y: scroll;
+    .hamburger {
+        z-index: 10000;
+        position: absolute;
+        top: 2%;
+        right: 2%;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        // padding: 5px;
+        border-radius: 50%;
+        background: black;
+        backdrop-filter: saturate(180%) blur(10px);
+        button {
+            position: absolute;
+            cursor: pointer;
+        }
+        cursor: pointer;
+        &:hover .open{
+            opacity: 0;
+        }
+        &:hover .close::after {
+            bottom: 45%;
+            transform: rotate(-45deg);
+        }
+        &:hover .close::before {
+            top: 45%;
+            transform: rotate(45deg);
+        }
+        .open,.close {
+            width: 65%;
+            height: 65%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            &::before,&::before,&::after,&::after {
+                content: '';
+                position: absolute;
+                height: 5px;
+                border-radius: 5px;
+                width: 100%;
+                background: white;
+            }
+            &::before,&::before {
+                left: 0;
+                top: 20%;
+                transition: all 0.3s ease-in-out;
+            }
+            &::after,&::after {
+                left: 0;
+                bottom: 20%;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+    .open span {
+        width: 50%;
+        height: 5px;
+        border-radius: 5px;
+        background: white;
+    }
+    
+    .close {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-options {
+        position: absolute;
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-rows: repeat(7,250px);
+        z-index: 500;
+        .cursor {
+            z-index: 1;
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-50%,-50%);
+            pointer-events: none;
+            transition: all 0.2s ease;
+            font-family: 'Bebas Neue', cursive;
+            transition-property: background,transform;
+            background: rgba(238, 237, 230, 0.753);
+            color: black;
+            h4 {
+                font-size: 20px;
+            }
+        }   
+        @media (max-width:600px) {
+            .cursor {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+        }
+        .smaller {
+            width: 25px;
+            height: 25px;
+            background: black;
+        }
+        .options {
+            width: 100%;
+            height: 100%;
+            background: orange;
+            display: -ms-inline-grid;
+            display: -moz-inline-grid;
+            display: inline-grid;
+            // transform: translateX(-50%);
+            grid-template-columns: 20% 80%;
+            .img {
+                grid-column: 1/2;
+                // justify-self: center;
+                width: 100%;
+                height: 250px;
+                position: relative;
+                img {
+                    object-fit:cover;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .text {
+                grid-column: 2/2;
+                width: 100%;
+                height: 250px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h1 {
+                    cursor: pointer;
+                    font-size: 4vw;
+                    font-family: 'Loved by the King', cursive;
+                }
+            }
+            @media (max-width:600px) {
+                .text {
+                    h1 {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width:600px) {
+            .options {
+                grid-template-columns: 50% 50%;
+            }
+        }
+    
+        @for $i from 1 to length($colors) {
+            $c: nth($colors, $i);
+            $m: nth($fonts, $i);
+            .options:nth-child(#{$i+1}) {
+                background: #{$c};
+                .text {
+                    h1 {
+                        font-family: #{$m};
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+

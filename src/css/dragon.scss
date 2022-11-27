@@ -1,0 +1,270 @@
+$colors:(#42b7dbad,#003e9cb2,#e605059f,#b803b88e,#b803b8);
+
+.dragon-container{
+    width: 100%;
+    height: auto;
+    font-family: 'Medula One',cursive;
+    background: linear-gradient(180deg, #FFF961 0%, rgba(255, 249, 97, 0) 100%);
+    .banner {
+        width: 100%;
+        height: 1000px;
+        // background: orange;
+        display: grid;
+        grid-template-columns: 30% 69%;
+        .image {
+            justify-self: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-column: 0/2;
+            width: 100%;
+            height: 100%;
+            .imgB {
+                width: auto;
+                height: auto;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .banner-title {
+            justify-self: center;
+            grid-column: 2/2;
+            height: 80%;
+            width: 100%;
+            display: grid;
+            align-items: center;
+            // background: orange;
+            justify-content: center;
+            grid-template-rows: 50% 50%;
+            .title {
+                width: 100%;
+                height: 100%;
+                grid-row: 0/2;
+                display: flex;
+                align-items: center;
+                font-size: 45px;
+                justify-content: center;
+            }
+            .sub-images {
+                width: 100%;
+                height: 100%;
+                grid-row: 2/2;
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                gap: 20px;
+
+                .gif {
+                    width: 100%;
+                    height: 100%;
+                    display: grid;
+                    grid-template-rows: auto auto;
+                    gap: 5px;
+                    .t {
+                        width: 100%;
+                        height: 300px;
+                        grid-row: 0/2;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .p {
+                        grid-row: 2/2;
+                        display: grid;
+                        align-items: center;
+                        justify-content: center;
+                        grid-template-columns: 20% 80%;
+                        .line {
+                            grid-column: 2/2;
+                            width: 100%;
+                            height: 5px;
+                            background: black;
+                        }
+                        
+                        .play {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 35px;
+                            color: #000;
+                        }
+                    }
+                }
+            
+            }
+        }
+
+    }
+
+    .characters-skills {
+        width: 100%;
+        height: auto;
+        grid-template-rows: auto auto auto auto;
+        display: grid;
+        row-gap: 50px;
+        // align-items: center;
+        // justify-content: center;
+        color: #fff;
+        .char {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            font-size: 40px;
+            grid-template-columns: 30% 69%;
+            .image {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                grid-column: 0/2;
+                .imgB {
+                    width: auto;
+                    height: 300px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .name-skills {
+                grid-column: 2/2;
+                width: 100%;
+                height: 100%;
+                display: grid;
+                row-gap: 5px;
+                grid-template-rows: auto auto;
+                .name {
+                    width: 100%;
+                    height: 100%;
+                    grid-row: 0/2;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    // justify-content:left;
+                    // text-align:end;
+                    h3 {
+                        // text-align: left;
+                        // width: 100%;
+                    }
+                }
+                .skills {
+                    grid-row: 2/2;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    // overflow: hidden;
+                    .up,.down {
+                        width: auto;
+                        height: auto;
+                        position: absolute;
+                        cursor: pointer;
+                        z-index: 10;
+                        // background: orange;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .up {
+                        top: 0%;
+                        left: 30%;
+                    }
+                    .down {
+                        bottom: 0;
+                        right: 30%;
+                    }
+                    @media (max-width:900px) {
+                        .up,.down {
+                            top: 0;
+                            width: 25px;
+                            height: 25px;
+                        }
+                        .up {
+                            left: 10%;
+                        }
+                        .down {
+                            right: 10%;
+                        }
+                    }
+                    .wrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: 100%;
+                        height: 100%;
+                        // background: orange;
+                        .skillsWrapper {
+                            transition: all 1s ease-in-out;
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            // overflow: hidden;
+                            .s {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @for $i from 1 to length($colors) {
+            $c: nth($colors, $i);
+            .char:nth-child(#{$i}) {
+                background: linear-gradient(to left,black,#{$c});
+            }
+    
+        }
+    }
+    @media (max-width:900px) {
+        .banner {
+            grid-template-columns: 100%;
+            .image {
+                display: none;
+                // width: ;
+            }
+            .banner-title {
+                grid-column: 1/1;
+            }
+        }
+    }
+    @media (max-width:500px) {
+        .banner {
+            .banner-title {
+                grid-column: 1/1;
+                .sub-images {
+                    grid-template-columns: auto auto;
+                    .gif {
+                        .t {
+                            height: 200px;
+
+                        }
+                        .p {
+                            .play {
+                                width: 25px;
+                                height: 25px;
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .characters-skills {
+            .char {
+                font-size: 30px;
+            }
+        }
+    }
+}

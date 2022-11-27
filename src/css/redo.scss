@@ -1,0 +1,58 @@
+$locationX: (10%,30%,20%,40%,60%,85%,60%,80%);
+$locationY: (20%,30%,60%,80%,20%,80%,60%,80%);
+
+.redo-container {
+    width: 100%;
+    background: #000;
+    height: 100vh;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .scrollDown {
+        top: 45%;
+        left: 5%;
+        position: absolute;
+        width: 45px;
+        height: 45px;
+    }
+    .items {
+        position: absolute;
+        width: 15vw;
+        height: 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FAFF0E;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        a {
+            z-index: 10;
+            position: absolute;       
+            display: flex;
+            align-items: center;
+            justify-content: center;     
+            width: 100%;
+            height: 100%;
+            ion-icon {
+                font-size: 35px;    
+                color: #FAFF0E;
+            }
+        }
+    }
+    @media (max-width:500px) {
+        .items {
+            width: 100px;
+            height: 100px;
+            a {
+                ion-icon {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+
+}
